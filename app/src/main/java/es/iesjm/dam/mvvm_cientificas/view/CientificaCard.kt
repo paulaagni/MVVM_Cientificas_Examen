@@ -5,8 +5,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,17 +35,26 @@ fun CientificaCard(cientifica: Cientificas, onClick: () -> Unit) {
     ) {
         // Se utiliza una Column para organizar el contenido de la tarjeta verticalmente.
         Column(modifier = Modifier.padding(16.dp)) {
+
+            // Icono
+            Icon(
+                imageVector = Icons.Filled.Search,
+                contentDescription = "Icono de Ciencia",
+                tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
             // Muestra el nombre de la científica.
             Text(
                 text = cientifica.nombre,
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onPrimaryContainer
             )
+            Divider(color = MaterialTheme.colorScheme.primary, thickness = 1.dp)
             // Espacio entre elementos.
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             // Muestra los logros de la científica, concatenados en una cadena de texto.
             Text(
-                text = "Logros: ${cientifica.logros}",
+                text = cientifica.logros,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onPrimaryContainer
             )

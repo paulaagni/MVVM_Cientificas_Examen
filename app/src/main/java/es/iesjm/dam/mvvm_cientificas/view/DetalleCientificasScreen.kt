@@ -4,9 +4,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -41,7 +44,7 @@ fun DetalleCientificaScreen(cientifica: Cientificas) {
 
             // Sección que muestra el encabezado "Logros:".
             Text(
-                text = "Logros:",
+                text = "Logros",
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.secondary
             )
@@ -49,14 +52,14 @@ fun DetalleCientificaScreen(cientifica: Cientificas) {
             // Muestra los logros de la científica.
             Text(
                 text = cientifica.logros,
-                style = MaterialTheme.typography.bodyLarge,
+                style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSecondaryContainer
             )
             Spacer(modifier = Modifier.height(16.dp)) // Espacio vertical entre secciones.
 
-            // Sección que muestra el encabezado "Biografía ampliada:".
+            // Sección que muestra el encabezado "Biografía".
             Text(
-                text = "Biografía ampliada:",
+                text = "Biografía",
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.secondary
             )
@@ -66,6 +69,14 @@ fun DetalleCientificaScreen(cientifica: Cientificas) {
                 text = cientifica.biografia,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSecondaryContainer
+            )
+            Spacer(modifier = Modifier.height(16.dp)) // Espacio vertical entre secciones.
+            //Icono de favoritos
+            Icon(
+                imageVector = Icons.Default.FavoriteBorder,
+                contentDescription = "Favoritos",
+                tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                modifier = Modifier.padding(bottom = 8.dp)
             )
         }
     }

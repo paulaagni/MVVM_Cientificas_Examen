@@ -8,6 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import es.iesjm.dam.mvvm_cientificas.view.DetalleCientificaScreen
+import es.iesjm.dam.mvvm_cientificas.view.HomeScreen
 import es.iesjm.dam.mvvm_cientificas.view.ListaCientificasScreen
 import es.iesjm.dam.mvvm_cientificas.viewmodel.CientificasViewModel
 
@@ -21,7 +22,11 @@ fun AppNavigation(navController: NavHostController) {
     val cientificas by viewModel.getCientificas().collectAsState(emptyList())
 
     // Se define el NavHost que contiene las rutas (composables) de la aplicación.
-    NavHost(navController = navController, startDestination = "lista") {
+    NavHost(navController = navController, startDestination = "home") {
+
+        composable("home") {
+            HomeScreen(navController = navController)
+        }
         // Ruta para la pantalla de lista de científicas.
         composable("lista") {
             ListaCientificasScreen(
