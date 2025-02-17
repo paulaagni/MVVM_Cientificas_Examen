@@ -15,45 +15,53 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import es.iesjm.dam.mvvm_cientificas.data.Cientificas
 
+// Composable que muestra los detalles de una científica en una tarjeta.
 @Composable
 fun DetalleCientificaScreen(cientifica: Cientificas) {
+    // Card que contiene toda la información detallada.
     Card(
-        modifier = Modifier.padding(16.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+        modifier = Modifier.padding(16.dp), // Espacio exterior alrededor de la tarjeta.
+        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp), // Sombra de la tarjeta.
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer
+            containerColor = MaterialTheme.colorScheme.secondaryContainer // Color de fondo de la tarjeta.
         )
     ) {
-        Column(modifier = Modifier.padding(24.dp)) {
-            // Título con el nombre
+        // Column para organizar los elementos verticalmente dentro de la tarjeta.
+        Column(modifier = Modifier.padding(24.dp)) { // Espacio interior de la tarjeta.
+            // Título que muestra el nombre de la científica.
             Text(
                 text = cientifica.nombre,
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.primary
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(8.dp)) // Espacio vertical entre elementos.
+            // Divider para separar visualmente el título de los demás contenidos.
             Divider(color = MaterialTheme.colorScheme.primary, thickness = 1.dp)
-            Spacer(modifier = Modifier.height(16.dp))
-            // Sección de logros
+            Spacer(modifier = Modifier.height(16.dp)) // Espacio vertical antes de la siguiente sección.
+
+            // Sección que muestra el encabezado "Logros:".
             Text(
                 text = "Logros:",
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.secondary
             )
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(4.dp)) // Espacio pequeño entre el título y el contenido.
+            // Muestra los logros de la científica.
             Text(
                 text = cientifica.logros,
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSecondaryContainer
             )
-            Spacer(modifier = Modifier.height(16.dp))
-            // Sección de biografía
+            Spacer(modifier = Modifier.height(16.dp)) // Espacio vertical entre secciones.
+
+            // Sección que muestra el encabezado "Biografía ampliada:".
             Text(
                 text = "Biografía ampliada:",
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.secondary
             )
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(4.dp)) // Espacio pequeño entre el título y el contenido.
+            // Muestra la biografía de la científica.
             Text(
                 text = cientifica.biografia,
                 style = MaterialTheme.typography.bodyMedium,
